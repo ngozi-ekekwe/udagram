@@ -1,5 +1,13 @@
-
 {
-    "scripts": {},
-    "devDependencies": {}
+  "scripts": {
+    "frontend-install": "",
+    "frontend-build": "",
+    "frontend-test": "",
+    "frontend-start": "",
+    "backend-install": "",
+    "backend-build": "",
+    "backend-test": "",
+    "backend-start": ""
+  },
+  "devDependencies": {}
 }
