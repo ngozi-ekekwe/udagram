@@ -51,7 +51,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Test Develop works
+          name: Test Develop
           command: |
             echo Hello Develop
 
@@ -66,3 +66,7 @@ workflows:
       - deploy :
           requires :
               - stage
+          filters:
+              branches:
+                only:
+                  - main
