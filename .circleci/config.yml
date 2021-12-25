@@ -44,10 +44,10 @@ jobs:
 workflows:
   stage_deploy:
     jobs:
-      - stage
-        filters:
-          tags:
-            branches: develop
-      - deploy:
-          requires:
-            - stage
+      - stage :
+          filters :
+            tags :
+              branches: develop
+      - deploy :
+          requires :
+              - stage
