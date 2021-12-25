@@ -42,7 +42,7 @@ jobs:
       - run:
           name: Test that this works
           command: |
-            echo Hello Stage
+            npm run frontend:deploy
 
   deploy:
     docker:
