@@ -34,20 +34,35 @@ jobs:
             npm run backend:build
 
   stage:
+    docker:
+      # the base image can run most needed actions with orbs
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
       - run:
           name: Test that this works
+          command: |
+            echo Hello Stage
 
   deploy:
+    docker:
+      # the base image can run most needed actions with orbs
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
       - run:
           name: Test that this works
+          command: |
+            echo Hello Stage
 
 workflows:
   stage_deploy:
     jobs:
       - stage :
           filters :
-            tags :
-              branches: develop
+              branches:
+                only: 
+                  - develop
       - deploy :
           requires :
               - stage
