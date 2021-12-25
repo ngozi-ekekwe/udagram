@@ -57,11 +57,7 @@ jobs:
 workflows:
   stage_deploy:
     jobs:
-      - stage :
-          filters :
-              branches:
-                only: 
-                  - develop
+      - stage
       - deploy :
           filters:
               branches:
