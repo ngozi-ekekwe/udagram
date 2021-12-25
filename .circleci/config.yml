@@ -20,4 +20,53 @@ jobs:
           name: Backend install
           command: |
             npm run backend:install
-        
+
+      # Build both frontend and backend
+
+      - run:
+          name: Frontend Build
+          command: |
+            npm run frontend:build
+
+      - run:
+          name: Backend Build
+          command: |
+            npm run backend:build
+
+  stage:
+    docker:
+      # the base image can run most needed actions with orbs
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
+      - run:
+          name: Test that this works
+          command: |
+            echo Hello Stage
+
+  deploy:
+    docker:
+      # the base image can run most needed actions with orbs
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
+      - run:
+          name: Test Develop
+          command: |
+            echo Hello Develop
+
+workflows:
+  stage_deploy:
+    jobs:
+      - stage :
+          filters :
+              branches:
+                only: 
+                  - develop
+      - deploy :
+          requires :
+              - stage
+          filters:
+              branches:
+                only:
+                  - main
