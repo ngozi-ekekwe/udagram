@@ -45,6 +45,9 @@ workflows:
   stage_deploy:
     jobs:
       - stage
+        filters:
+          tags:
+            branches: develop
       - deploy:
           requires:
             - stage
