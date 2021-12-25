@@ -20,6 +20,9 @@ jobs:
           name: Backend install
           command: |
             npm run backend:install
+
+      # Build both frontend and backend
+
       - run:
           name: Frontend Build
           command: |
@@ -29,4 +32,23 @@ jobs:
           name: Backend Build
           command: |
             npm run backend:build
-        
+
+  stage:
+    - run:
+        name: "Test that this works"
+        command: |
+          echo "Hello Stage"
+
+  deploy:
+    - run:
+        name: "Test that deploy works"
+        command: |
+          echo "Hello Deploy"
+
+workflows:
+  stage_deploy:
+    jobs:
+      - stage
+      - deploy:
+          requires:
+            - stage
