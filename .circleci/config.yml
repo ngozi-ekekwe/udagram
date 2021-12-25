@@ -37,13 +37,13 @@ jobs:
     - run:
         name: "Test that this works"
         command: |
-          echo "Hello Stage"
+          echo Hello Stage
 
   deploy:
     - run:
-        name: "Test that deploy works"
+        name: Test that deploy works
         command: |
-          echo "Hello Deploy"
+          echo Hello Deploy
 
 workflows:
   stage_deploy:
