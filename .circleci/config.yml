@@ -20,7 +20,7 @@ jobs:
           name: Backend install
           command: |
             npm run backend:install
-      -run:
+      - run:
         name: Frontend Build
         command: |
           npm run frontend:build
