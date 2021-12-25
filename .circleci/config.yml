@@ -51,9 +51,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Test that this works
+          name: Test Develop works
           command: |
-            echo Hello Stage
+            echo Hello Develop
 
 workflows:
   stage_deploy:
