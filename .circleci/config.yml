@@ -34,16 +34,16 @@ jobs:
             npm run backend:build
 
   stage:
-    - run:
-        name: "Test that this works"
-        command: |
-          echo Hello Stage
+      - run:
+          name: Test that this works
+          command: |
+            echo Hello Stage
 
   deploy:
-    - run:
-        name: Test that deploy works
-        command: |
-          echo Hello Deploy
+      - run:
+          name: Test that this works
+          command: |
+            echo Hello Deploy
 
 workflows:
   stage_deploy:
