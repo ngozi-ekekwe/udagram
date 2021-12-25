@@ -63,7 +63,8 @@ workflows:
                 only: 
                   - develop
       - deploy :
+          requires :
+            - stage
           filters:
               branches:
-                only:
-                  - main
+                only: main
