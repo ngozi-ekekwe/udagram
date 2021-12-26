@@ -3,6 +3,7 @@ orbs:
   # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
   node: circleci/node@4.1.0
   # different jobs are calles later in the workflows sections
+  aws-cli: circleci/aws-cli@2.0.3
 jobs:
   build:
     docker:
@@ -32,6 +33,11 @@ jobs:
           name: Backend Build
           command: |
             npm run backend:build
+
+      - aws-cli/setup:
+          aws-access-key-id: $ACCESS_KEY
+          aws-secret-access-key: $SECRET_KEY
+          aws-region: $REGION
 
   stage:
     docker:
