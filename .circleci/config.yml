@@ -35,9 +35,9 @@ jobs:
             npm run backend:build
 
       - aws-cli/setup:
-          aws-access-key-id: $ACCESS_KEY
-          aws-secret-access-key: $SECRET_KEY
-          aws-region: $REGION
+          aws-access-key-id: ACCESS_KEY
+          aws-secret-access-key: SECRET_KEY
+          aws-region: REGION
 
   stage:
     docker:
