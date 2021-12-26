@@ -47,6 +47,10 @@ jobs:
           aws-region: REGION
       - checkout
       - run:
+          name: Frontend install
+          command: |
+            npm run frontend:install
+      - run:
           name: Run Staging
           command: |
             npm run deploy:frontend
@@ -65,6 +69,7 @@ jobs:
 
   deploy:
     docker:
+      # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
       - node/install
@@ -74,7 +79,11 @@ jobs:
           aws-region: REGION
       - checkout
       - run:
-          name: Test Main
+          name: Frontend install
+          command: |
+            npm run frontend:install
+      - run:
+          name: Run Staging
           command: |
             npm run deploy:frontend
 
