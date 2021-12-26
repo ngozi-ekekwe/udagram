@@ -78,8 +78,10 @@ workflows:
   stage_deploy:
     jobs:
       - build
-      - test
-      - stage
+      - test:
+          requires: build
+      - stage:
+          requires: test
       - deploy :
           filters:
               branches:
