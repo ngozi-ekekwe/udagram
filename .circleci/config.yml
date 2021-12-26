@@ -38,6 +38,7 @@ jobs:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
+      - node/install
       - checkout
       - run:
           name: Run Staging
@@ -49,6 +50,7 @@ jobs:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
+      - node/install
       - checkout
       - run:
           name: Run Mocha Tests
@@ -59,6 +61,7 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - node/install
       - checkout
       - run:
           name: Test Main
