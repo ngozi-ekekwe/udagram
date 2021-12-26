@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "chmod +x ./bin/www.sh; ./bin/www.sh"
+    "deploy": "aws s3 sync www/ s3://ngekekwebucket --acl public-read"
   },
   "private": true,
   "dependencies": {
