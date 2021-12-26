@@ -6,11 +6,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider; ng build",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:frontend": "ng build --prod"
+    "deploy:frontend": "chmod +x ./deploy/deploy-frontend.sh; ./deploy/deploy-frontend.sh"
   },
   "private": true,
   "dependencies": {
