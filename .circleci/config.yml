@@ -40,33 +40,37 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Test that this works
+          name: Run Staging
           command: |
-            echo Hello Stage
+            echo Hello Staging
 
-  deploy:
+  test:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
       - checkout
       - run:
-          name: Test Develop
+          name: Run Mocha Tests
           command: |
-            echo Hello Develop
+            echo Hello Test
+
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
+      - run:
+          name: Test Main
+          command: |
+            npm run deploy:frontend
 
 workflows:
   stage_deploy:
     jobs:
-      - stage :
-          filters :
-              branches:
-                only: 
-                  - develop
+      - test
+      - stage
       - deploy :
-          requires :
-              - stage
           filters:
               branches:
-                only:
-                  - main
+                only: main
