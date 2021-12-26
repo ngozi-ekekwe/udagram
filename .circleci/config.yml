@@ -41,7 +41,10 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - aws-cli/setup
+      - aws-cli/setup:
+          aws-access-key-id: ACCESS_KEY
+          aws-secret-access-key: SECRET_KEY
+          aws-region: REGION
       - checkout
       - run:
           name: Run Staging
@@ -65,7 +68,10 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - aws-cli/setup
+      - aws-cli/setup:
+          aws-access-key-id: ACCESS_KEY
+          aws-secret-access-key: SECRET_KEY
+          aws-region: REGION
       - checkout
       - run:
           name: Test Main
