@@ -65,10 +65,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - aws-cli/setup:
-          aws-access-key-id: ACCESS_KEY
-          aws-secret-access-key: SECRET_KEY
-          aws-region: REGION
+      - aws-cli/setup
       - checkout
       - run:
           name: Test Main
