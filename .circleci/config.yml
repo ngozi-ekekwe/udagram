@@ -42,7 +42,7 @@ jobs:
       - run:
           name: Run Staging
           command: |
-            echo Hello Staging
+            npm run deploy:frontend
 
   test:
     docker:
