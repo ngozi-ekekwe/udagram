@@ -79,9 +79,11 @@ workflows:
     jobs:
       - build
       - test:
-          requires: build
+          requires: 
+            - build
       - stage:
-          requires: test
+          requires: 
+            - test
       - deploy :
           filters:
               branches:
