@@ -1,1 +1,2 @@
-aws s3 sync www/ s3://ngekekwebucket --acl public-read
+
+aws s3 cp --recursive --acl public-read ./www s3://ngekekwebucket/
