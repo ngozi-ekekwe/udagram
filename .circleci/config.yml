@@ -11,8 +11,8 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - browser-tools/install-chrome
       - checkout
+       - browser-tools/install-chrome
       # install dependencies in both apps
       - run:
           name: Frontend install
@@ -41,6 +41,6 @@ jobs:
 
 
 workflows:
-  build_test:
+  build_test_deploy:
     jobs:
       - build
