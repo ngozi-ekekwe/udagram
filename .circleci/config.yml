@@ -3,6 +3,7 @@ orbs:
   # orgs contain basc recipes and reproducible actions (install node, aws, elb, etc.)
   node: circleci/node@4.1.0
   aws-cli: circleci/aws-cli@2.0.3
+  browser-tools: circleci/browser-tools@1.2.2
 
 jobs:
   build:
@@ -10,6 +11,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
+      - browser-tools/install-chrome
       - checkout
       # install dependencies in both apps
       - run:
