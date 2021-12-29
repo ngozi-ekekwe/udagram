@@ -13,6 +13,10 @@ jobs:
       - node/install
       - checkout
       - browser-tools/install-chrome
+      - aws-cli/setup:
+          aws-access-key-id: ACCESS_KEY
+          aws-secret-access-key: SECRET_KEY
+          aws-region: REGION
       # install dependencies in both apps
       - run:
           name: Frontend install
@@ -38,6 +42,10 @@ jobs:
           command: |
             npm run test:frontend
 
+      - run:
+          name: Deploy Frontend
+          command: | 
+            npm run deploy:frontend
 
 workflows:
   build_test_deploy:
