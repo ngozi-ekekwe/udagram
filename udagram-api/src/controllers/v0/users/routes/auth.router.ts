@@ -81,8 +81,14 @@ router.post('/login', async (req: Request, res: Response) => {
 
 
 router.post('/', async (req: Request, res: Response) => {
-  const email = req.body.email;
-  const plainTextPassword = req.body.password;
+  console.log("called")
+  // const email = req.body.email;
+  // const plainTextPassword = req.body.password;
+
+  const email = 'chess@gmail.com';
+  const plainTextPassword = 'chess@gmail.com';
+
+  console.log(plainTextPassword, 'plainTextPassword', req.body)
 
   if (!email || !EmailValidator.validate(email)) {
     return res.status(400).send({auth: false, message: 'Email is missing or malformed.'});

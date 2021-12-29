@@ -38,7 +38,11 @@ export class AuthRegisterComponent implements OnInit {
   onSubmit($event) {
     $event.preventDefault();
 
+    console.log(this.registerForm)
+
     if (!this.registerForm.valid) { return; }
+
+    console.log(this.registerForm.controls)
 
     const newuser: User = {
       email: this.registerForm.controls.email.value,
@@ -47,6 +51,7 @@ export class AuthRegisterComponent implements OnInit {
 
     this.auth.register(newuser, this.registerForm.controls.password.value)
               .then((user) => {
+                console.log(user, 'this is user')
                 this.modal.dismiss();
               })
              .catch((e) => {
