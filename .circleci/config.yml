@@ -5,7 +5,7 @@ orbs:
   aws-cli: circleci/aws-cli@2.0.3
 
 jobs:
-  build_test:
+  build:
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -38,3 +38,7 @@ jobs:
             npm run test:frontend
 
 
+workflows:
+  build_test:
+    jobs:
+      - build
