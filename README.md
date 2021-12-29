@@ -26,6 +26,7 @@ Environment Variables on CircleCI
 
 
 Architecture
+
 ![Screenshot 2021-12-29 at 19 08 10](https://user-images.githubusercontent.com/11598255/147691292-92609634-f3f5-451b-9a65-48bba1d2914f.png)
 
 

@@ -1,13 +1,12 @@
 version: 2.1
 orbs:
-  # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
+  # orgs contain basc recipes and reproducible actions (install node, aws, elb, etc.)
   node: circleci/node@4.1.0
-  # different jobs are calles later in the workflows sections
   aws-cli: circleci/aws-cli@2.0.3
+
 jobs:
-  build:
+  build_test:
     docker:
-      # the base image can run most needed actions with orbs
       - image: "cimg/base:stable"
     steps:
       - node/install
@@ -21,9 +20,7 @@ jobs:
           name: Backend install
           command: |
             npm run backend:install
-
       # Build both frontend and backend
-
       - run:
           name: Frontend Build
           command: |
@@ -34,70 +31,10 @@ jobs:
           command: |
             npm run backend:build
 
+      # Run test on frontend
+      - run:
+          name: Test Frontend
+          command: |
+            npm run test:frontend
 
-  stage:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
-    steps:
-      - node/install
-      - aws-cli/setup:
-          aws-access-key-id: ACCESS_KEY
-          aws-secret-access-key: SECRET_KEY
-          aws-region: REGION
-      - checkout
-      - run:
-          name: Frontend install
-          command: |
-            npm run frontend:install
-      - run:
-          name: Run Staging
-          command: |
-            npm run deploy:frontend
 
-  test:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
-    steps:
-      - node/install
-      - checkout
-      - run:
-          name: Run Mocha Tests
-          command: |
-            echo Hello Test
-
-  deploy:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/base:stable"
-    steps:
-      - node/install
-      - aws-cli/setup:
-          aws-access-key-id: ACCESS_KEY
-          aws-secret-access-key: SECRET_KEY
-          aws-region: REGION
-      - checkout
-      - run:
-          name: Frontend install
-          command: |
-            npm run frontend:install
-      - run:
-          name: Run Staging
-          command: |
-            npm run deploy:frontend
-
-workflows:
-  stage_deploy:
-    jobs:
-      - build
-      - test:
-          requires: 
-            - build
-      - stage:
-          requires: 
-            - test
-      - deploy :
-          filters:
-              branches:
-                only: main
