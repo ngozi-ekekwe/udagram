@@ -18,7 +18,10 @@ jobs:
           aws-access-key-id: ACCESS_KEY
           aws-secret-access-key: SECRET_KEY
           aws-region: REGION
-      - aws-elastic-beanstalk/setup
+      - aws-elastic-beanstalk/setup:
+          aws-access-key-id: ACCESS_KEY
+          aws-secret-access-key: SECRET_KEY
+          aws-region: REGION
       # install dependencies in both apps
       - run:
           name: Frontend install
