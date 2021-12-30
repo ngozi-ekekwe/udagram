@@ -5,7 +5,7 @@
 
 This project is part of the Udacity FullStack JavaScript nanodegree. The code was given as a starter project and the task was to deploy the application and get it hosted on AWS.
 
-http://udagramfrontendng.s3-website.eu-central-1.amazonaws.com/home
+http://udagramfrontendng.s3-website.eu-central-1.amazonaws.com
 
 
 ## AWS Architecture

@@ -4,6 +4,7 @@ orbs:
   node: circleci/node@4.1.0
   aws-cli: circleci/aws-cli@2.0.3
   browser-tools: circleci/browser-tools@1.2.2
+  aws-elastic-beanstalk: circleci/aws-elastic-beanstalk@2.0.1
 
 jobs:
   build:
@@ -12,6 +13,7 @@ jobs:
     steps:
       - node/install
       - checkout
+      - aws-elastic-beanstalk/setup
       - browser-tools/install-chrome
       - aws-cli/setup:
           aws-access-key-id: ACCESS_KEY
@@ -46,6 +48,10 @@ jobs:
           name: Deploy Frontend
           command: | 
             npm run deploy:frontend
+      - run:
+        name: Deploy Backend
+        command: |
+          npm run deploy:backend
 
 workflows:
   build_test_deploy:
