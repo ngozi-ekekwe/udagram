@@ -13,12 +13,12 @@ jobs:
     steps:
       - node/install
       - checkout
-      - aws-elastic-beanstalk/setup
       - browser-tools/install-chrome
       - aws-cli/setup:
           aws-access-key-id: ACCESS_KEY
           aws-secret-access-key: SECRET_KEY
           aws-region: REGION
+      - aws-elastic-beanstalk/setup
       # install dependencies in both apps
       - run:
           name: Frontend install
