@@ -44,14 +44,16 @@ The Frontend application is deployed to AWS S3. The application is configured to
 
 
 
-## CircleCI 
+## Environment Variables on CircleCI 
+
+![Screenshot 2021-12-30 at 02 21 17](https://user-images.githubusercontent.com/11598255/147715168-3553140a-7ade-4d2d-8276-fc9e792a5cf2.png)
 
 
 
-## Environment Variables on ELB
+## CircleCI Builds
+![Screenshot 2021-12-30 at 02 43 28](https://user-images.githubusercontent.com/11598255/147715190-24811959-b0db-40c4-bea7-4a4e82de83eb.png)
 
 
-## Environment Variables on CircleCI
 
 
 
